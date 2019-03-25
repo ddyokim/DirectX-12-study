@@ -220,25 +220,37 @@ void BoxApp::OnMouseMove(WPARAM btnState, int x, int y)
 void BoxApp::BuildGeometryBuffers()
 {
 	// Create vertex buffer
-    Vertex vertices[] =
-    {
-		{ XMFLOAT3(0.0f, +1.414f, 0.0f), XMFLOAT4((const float*)&Colors::White)   },
+	Vertex vertices[] =
+	{
+		{ XMFLOAT3(0.0f, +1.414f, 0.0f), XMFLOAT4((const float*)&Colors::White)  },
 		{ XMFLOAT3(+1.0f, 0.0f, +1.0f), XMFLOAT4((const float*)&Colors::Red)     },
-		{ XMFLOAT3(+1.0f, 0.0f, -1.0f), XMFLOAT4((const float*)&Colors::Cyan)   },
+		{ XMFLOAT3(+1.0f, 0.0f, -1.0f), XMFLOAT4((const float*)&Colors::Cyan)    },
 		{ XMFLOAT3(-1.0f, 0.0f, -1.0f), XMFLOAT4((const float*)&Colors::Blue)    },
-		{ XMFLOAT3(-1.0f, 0.0f, +1.0f), XMFLOAT4((const float*)&Colors::Yellow)  }
-    };
+		{ XMFLOAT3(-1.0f, 0.0f, +1.0f), XMFLOAT4((const float*)&Colors::Yellow)  },
 
-    D3D11_BUFFER_DESC vbd;
-    vbd.Usage = D3D11_USAGE_IMMUTABLE;
-    vbd.ByteWidth = sizeof(Vertex) * 5;
-    vbd.BindFlags = D3D11_BIND_VERTEX_BUFFER;
-    vbd.CPUAccessFlags = 0;
-    vbd.MiscFlags = 0;
+
+		{ XMFLOAT3(-1.0f + 3, +1.0f, +1.0f), XMFLOAT4((const float*)&Colors::White)   },
+		{ XMFLOAT3(+1.0f + 3, +1.0f, +1.0f), XMFLOAT4((const float*)&Colors::Red)     },
+		{ XMFLOAT3(+1.0f + 3, +1.0f, -1.0f), XMFLOAT4((const float*)&Colors::Cyan)    },
+		{ XMFLOAT3(-1.0f + 3, +1.0f, -1.0f), XMFLOAT4((const float*)&Colors::Blue)    },
+
+		{ XMFLOAT3(-1.0f + 3, -1.0f, +1.0f), XMFLOAT4((const float*)&Colors::Yellow)  },
+		{ XMFLOAT3(+1.0f + 3, -1.0f, +1.0f), XMFLOAT4((const float*)&Colors::Black)   },
+		{ XMFLOAT3(+1.0f + 3, -1.0f, -1.0f), XMFLOAT4((const float*)&Colors::Green)   },
+		{ XMFLOAT3(-1.0f + 3, -1.0f, -1.0f), XMFLOAT4((const float*)&Colors::Magenta) }
+	};
+
+
+	D3D11_BUFFER_DESC vbd;
+	vbd.Usage = D3D11_USAGE_IMMUTABLE;
+	vbd.ByteWidth = sizeof(Vertex) * (5 + 8);
+	vbd.BindFlags = D3D11_BIND_VERTEX_BUFFER;
+	vbd.CPUAccessFlags = 0;
+	vbd.MiscFlags = 0;
 	vbd.StructureByteStride = 0;
-    D3D11_SUBRESOURCE_DATA vinitData;
-    vinitData.pSysMem = vertices;
-    HR(md3dDevice->CreateBuffer(&vbd, &vinitData, &mBoxVB));
+	D3D11_SUBRESOURCE_DATA vinitData;
+	vinitData.pSysMem = vertices;
+	HR(md3dDevice->CreateBuffer(&vbd, &vinitData, &mBoxVB));
 
 
 	// Create the index buffer
@@ -250,20 +262,41 @@ void BoxApp::BuildGeometryBuffers()
 		0, 3, 4,
 
 		2, 4, 3,
-		2, 1, 4
+		2, 1, 4,
+
+		///////////////
+		5, 6, 7,
+		5, 7, 8,
+
+		7, 6, 10,
+		7, 10, 11,
+
+		8, 7, 11,
+		8, 11, 12,
+
+		5, 9, 10,
+		6, 5, 10,
+
+		8, 12, 9,
+		5, 8, 9,
+
+		11, 9, 12,
+		11, 10, 9
+
 	};
 
 	D3D11_BUFFER_DESC ibd;
-    ibd.Usage = D3D11_USAGE_IMMUTABLE;
-    ibd.ByteWidth = sizeof(UINT) * 18;
-    ibd.BindFlags = D3D11_BIND_INDEX_BUFFER;
-    ibd.CPUAccessFlags = 0;
-    ibd.MiscFlags = 0;
+	ibd.Usage = D3D11_USAGE_IMMUTABLE;
+	ibd.ByteWidth = sizeof(UINT) * (6 + 12) * 3;
+	ibd.BindFlags = D3D11_BIND_INDEX_BUFFER;
+	ibd.CPUAccessFlags = 0;
+	ibd.MiscFlags = 0;
 	ibd.StructureByteStride = 0;
-    D3D11_SUBRESOURCE_DATA iinitData;
-    iinitData.pSysMem = indices;
-    HR(md3dDevice->CreateBuffer(&ibd, &iinitData, &mBoxIB));
+	D3D11_SUBRESOURCE_DATA iinitData;
+	iinitData.pSysMem = indices;
+	HR(md3dDevice->CreateBuffer(&ibd, &iinitData, &mBoxIB));
 }
+
  
 void BoxApp::BuildFX()
 {
