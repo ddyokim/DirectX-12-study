@@ -1,1 +1,2 @@
-# DirectX 12  °øºÎ¸¦ ÇÕ½Ã´Ù.
+# DirectX 12 ë¥¼ ê³µë¶€í•©ì‹œë‹¤.
+ì±… url: http://www.hanbit.co.kr/store/books/look.php?p_code=B5088646371
