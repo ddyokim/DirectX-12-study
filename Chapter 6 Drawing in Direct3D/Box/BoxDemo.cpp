@@ -166,7 +166,7 @@ void BoxApp::DrawScene()
         mTech->GetPassByIndex(p)->Apply(0, md3dImmediateContext);
         
 		// 36 indices for the box.
-		md3dImmediateContext->DrawIndexed(36, 0, 0);
+		md3dImmediateContext->DrawIndexed(36 + 18, 0, 0);
     }
 
 	HR(mSwapChain->Present(0, 0));
