@@ -24,7 +24,7 @@ MainWndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 
 D3DApp::D3DApp(HINSTANCE hInstance)
 :	mhAppInst(hInstance),
-	mMainWndCaption(L"Moobin_TriangleSamle"),
+	mMainWndCaption(L"Moobin"),
 	md3dDriverType(D3D_DRIVER_TYPE_HARDWARE),
 	mClientWidth(800),
 	mClientHeight(600),

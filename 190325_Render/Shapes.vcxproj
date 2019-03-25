@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{E981104E-9040-431C-823D-8E9EB680778D}</ProjectGuid>
+    <ProjectGuid>{B58ACF7E-1308-458C-9D49-3DDA1B3B5D4B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Shapes</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
@@ -70,7 +70,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(FBXSDK_DIR)/include;D:\DirectX-12-study\Common;../Common;$(IncludePath)</IncludePath>
+    <IncludePath>$(FBXSDK_DIR)/include;../Common;$(IncludePath)</IncludePath>
     <LibraryPath>$(FBXSDK_DIR)/lib/vs2015\x86\debug;../Common;$(LibraryPath)</LibraryPath>
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
