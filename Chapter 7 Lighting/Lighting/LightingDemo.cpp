@@ -128,40 +128,25 @@ LightingApp::LightingApp(HINSTANCE hInstance)
 	XMStoreFloat4x4(&mWavesWorld, wavesOffset);
 
 	// Directional light.
-	// REMARK: 예제1 - 빨간색
-	/*mDirLight.Ambient  = XMFLOAT4(0.2f, 0.2f, 0.2f, 1.0f);
+	mDirLight.Ambient  = XMFLOAT4(0.2f, 0.2f, 0.2f, 1.0f);
 	mDirLight.Diffuse  = XMFLOAT4(0.5f, 0.5f, 0.5f, 1.0f);
-	mDirLight.Specular = XMFLOAT4(0.5f, 0.5f, 0.5f, 1.0f);*/
+	mDirLight.Specular = XMFLOAT4(0.5f, 0.5f, 0.5f, 1.0f);
 	mDirLight.Direction = XMFLOAT3(0.57735f, -0.57735f, 0.57735f);
-	
-	mDirLight.Ambient  = XMFLOAT4(0.2f, 0, 0, 1);
-	mDirLight.Diffuse  = XMFLOAT4(0.5f, 0, 0, 1);
-	mDirLight.Specular = XMFLOAT4(0.5f, 0, 0, 1);
  
 	// Point light--position is changed every frame to animate in UpdateScene function.
-	// REMARK: 예제1 - 녹색
-	/*mPointLight.Ambient  = XMFLOAT4(0.3f, 0.3f, 0.3f, 1.0f);
+	mPointLight.Ambient  = XMFLOAT4(0.3f, 0.3f, 0.3f, 1.0f);
 	mPointLight.Diffuse  = XMFLOAT4(0.7f, 0.7f, 0.7f, 1.0f);
-	mPointLight.Specular = XMFLOAT4(0.7f, 0.7f, 0.7f, 1.0f);*/
+	mPointLight.Specular = XMFLOAT4(0.7f, 0.7f, 0.7f, 1.0f);
 	mPointLight.Att      = XMFLOAT3(0.0f, 0.1f, 0.0f);
 	mPointLight.Range    = 25.0f;
 
-	mPointLight.Ambient = XMFLOAT4(0, 0.3f, 0, 1.0f);
-	mPointLight.Diffuse = XMFLOAT4(0, 0.7f, 0, 1.0f);
-	mPointLight.Specular = XMFLOAT4(0, 0.7f, 0, 1.0f);
-
 	// Spot light--position and direction changed every frame to animate in UpdateScene function.
-	// REMARK: 예제1 - 파란색
-	/*mSpotLight.Ambient  = XMFLOAT4(0.0f, 0.0f, 0.0f, 1.0f);
+	mSpotLight.Ambient  = XMFLOAT4(0.0f, 0.0f, 0.0f, 1.0f);
 	mSpotLight.Diffuse  = XMFLOAT4(1.0f, 1.0f, 0.0f, 1.0f);
-	mSpotLight.Specular = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f); */
+	mSpotLight.Specular = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
 	mSpotLight.Att      = XMFLOAT3(1.0f, 0.0f, 0.0f);
 	mSpotLight.Spot     = 96.0f;
 	mSpotLight.Range    = 10000.0f;
-
-	mSpotLight.Ambient = XMFLOAT4(0, 0, 0.0f, 1.0f);
-	mSpotLight.Diffuse = XMFLOAT4(0, 1, 0.0f, 1.0f);
-	mSpotLight.Specular = XMFLOAT4(0, 0, 1.0f, 1.0f);
 
 	mLandMat.Ambient  = XMFLOAT4(0.48f, 0.77f, 0.46f, 1.0f);
 	mLandMat.Diffuse  = XMFLOAT4(0.48f, 0.77f, 0.46f, 1.0f);
